@@ -180,6 +180,7 @@ require("oil").setup({
     ["`"] = "actions.cd",
     ["~"] = "actions.tcd",
     ["g."] = "actions.toggle_hidden",
+    ["g\\"] = "actions.open_trash",
   },
   -- Set to false to disable all of the above keymaps
   use_default_keymaps = true,
