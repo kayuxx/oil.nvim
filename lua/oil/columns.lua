@@ -217,6 +217,9 @@ if has_devicons then
         icon = conf and conf.directory or ""
         hl = "OilDirIcon"
       else
+        if meta and meta.display_name then
+          name = meta.display_name
+        end
         icon, hl = devicons.get_icon(name)
         icon = icon or (conf and conf.default_file or "")
       end
