@@ -1,5 +1,6 @@
 local cache = require("oil.cache")
 local columns = require("oil.columns")
+local config = require("oil.config")
 local constants = require("oil.constants")
 local oil = require("oil")
 local parser = require("oil.mutator.parser")
@@ -350,12 +351,12 @@ end
 ---@param actions oil.Action[]
 ---@param cb fun(err: nil|string)
 M.process_actions = function(actions, cb)
-  -- Convert cross-adapter moves to a copy + delete
+  -- Convert some cross-adapter moves to a copy + delete
   for _, action in ipairs(actions) do
     if action.type == "move" then
-      local src_scheme = util.parse_url(action.src_url)
-      local dest_scheme = util.parse_url(action.dest_url)
-      if src_scheme ~= dest_scheme then
+      local _, cross_action = util.get_adapter_for_action(action)
+      -- Only do the conversion if the cross-adapter support is "copy"
+      if cross_action == "copy" then
         action.type = "copy"
         table.insert(actions, {
           type = "delete",

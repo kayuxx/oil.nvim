@@ -353,7 +353,7 @@ M.get_column = function(name)
   return file_columns[name]
 end
 
-M.supported_adapters_for_copy = { files = true }
+M.supported_cross_adapter_actions = { files = "move" }
 
 ---@param action oil.Action
 ---@return string
@@ -496,7 +496,7 @@ M.perform_action = function(action, cb)
         if err then
           return cb(err)
         end
-        purge(trash_info, cb)
+        uv.fs_unlink(trash_info.info_file, cb)
       end)
     else
       error("Must be moving files into or out of trash")
