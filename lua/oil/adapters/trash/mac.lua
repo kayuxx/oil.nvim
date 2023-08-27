@@ -28,6 +28,17 @@ M.normalize_url = function(url, callback)
   callback(scheme .. "/")
 end
 
+---@param entry oil.Entry
+---@param cb fun(path: string)
+M.get_entry_path = function(entry, cb)
+  local trash_dir = get_trash_dir()
+  local path = fs.join(trash_dir, entry.name)
+  if entry.type == "directory" then
+    path = "oil://" .. path
+  end
+  cb(path)
+end
+
 ---@param url string
 ---@param column_defs string[]
 ---@param cb fun(err?: string, entries?: oil.InternalEntry[], fetch_more?: fun())
