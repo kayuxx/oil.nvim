@@ -1,6 +1,5 @@
 local cache = require("oil.cache")
 local columns = require("oil.columns")
-local config = require("oil.config")
 local constants = require("oil.constants")
 local oil = require("oil")
 local parser = require("oil.mutator.parser")

@@ -190,7 +190,6 @@ M.get_buffer_parent_url = function(bufname)
     return parent_url, basename
   else
     assert(path)
-    -- TODO maybe we should remove this special case and turn it into a config
     if scheme == "term://" then
       ---@type string
       path = vim.fn.expand(path:match("^(.*)//")) ---@diagnostic disable-line: assign-type-mismatch
