@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/stevearc/oil.nvim/compare/v2.0.1...v2.0.2) (2023-09-02)
+
+
+### Bug Fixes
+
+* change default winblend for floating window to 0 ([#167](https://github.com/stevearc/oil.nvim/issues/167)) ([7033d52](https://github.com/stevearc/oil.nvim/commit/7033d52db012666b85504fe9a678939e49bc14b7))
+
 ## [2.0.1](https://github.com/stevearc/oil.nvim/compare/v2.0.0...v2.0.1) (2023-08-26)
 
 
